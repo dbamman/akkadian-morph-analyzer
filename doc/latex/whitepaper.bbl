@@ -1,0 +1,53 @@
+\begin{thebibliography}{6}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Barth{\'e}lemy(1998)]{Barthelemy:1998:MAA:1621753.1621766}
+Fran\c{c}ois Barth{\'e}lemy.
+\newblock A morphological analyzer for akkadian verbal forms with a model of
+  phonetic transformations.
+\newblock In \emph{Proceedings of the Workshop on Computational Approaches to
+  Semitic Languages}, Semitic '98, pages 73--81, Stroudsburg, PA, USA, 1998.
+  Association for Computational Linguistics.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=1621753.1621766}.
+
+\bibitem[Barth{\'e}lemy(2009)]{barthelemy2010}
+Fran\c{c}ois Barth{\'e}lemy.
+\newblock Une description morphologique structur{\'e}e en arbre du verbe
+  akkadien qui utilise des structures de traits et des transducteurs
+  multirubans, 2009.
+
+\bibitem[Caplice(2002)]{caplice}
+Richard Caplice.
+\newblock \emph{Introduction to {A}kkadian}.
+\newblock Editrice Pontifico Istituto Biblico, Roma, 2002.
+
+\bibitem[Huehnergard(2005)]{huehnergard}
+John Huehnergard.
+\newblock \emph{A Grammar of {A}kkadian}.
+\newblock Eisenbrauns, Winona Lake, Indiana, 2005.
+
+\bibitem[Kataja and Koskenniemi(1988)]{Kataja:1988:FDS:991635.991699}
+Laura Kataja and Kimmo Koskenniemi.
+\newblock Finite-state description of semitic morphology: a case study of
+  {A}ncient {A}kkadian.
+\newblock In \emph{Proceedings of the 12th conference on Computational
+  linguistics - Volume 1}, COLING '88, pages 313--315, Stroudsburg, PA, USA,
+  1988. Association for Computational Linguistics.
+\newblock ISBN 963 8431 56 3.
+\newblock \doi{10.3115/991635.991699}.
+\newblock URL \url{http://dx.doi.org/10.3115/991635.991699}.
+
+\bibitem[Macks(2002)]{Macks:2002:PAV:1118637.1118638}
+Aaron Macks.
+\newblock Parsing {A}kkadian verbs with prolog.
+\newblock In \emph{Proceedings of the ACL-02 workshop on Computational
+  approaches to semitic languages}, SEMITIC '02, pages 1--6, Stroudsburg, PA,
+  USA, 2002. Association for Computational Linguistics.
+\newblock \doi{10.3115/1118637.1118638}.
+\newblock URL \url{http://dx.doi.org/10.3115/1118637.1118638}.
+
+\end{thebibliography}

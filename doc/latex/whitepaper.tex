@@ -1,0 +1,116 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{fullpage}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsfonts,eucal,amsbsy,amsopn,amsmath}
+\usepackage{url}
+\usepackage[sort&compress]{natbib}
+\usepackage{natbibspacing}
+\usepackage{latexsym}
+\usepackage{wasysym} 
+\usepackage{rotating}
+\usepackage{fancyhdr}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\usepackage{sectsty}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage{multicol}
+\definecolor{orange}{rgb}{1,0.5,0}
+\usepackage{multirow}
+\usepackage{sidecap}
+\usepackage{caption}
+\renewcommand{\captionfont}{\small}
+\setlength{\oddsidemargin}{-0.04cm}
+\setlength{\textwidth}{16.59cm}
+\setlength{\topmargin}{-0.04cm}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{22.94cm}
+\allsectionsfont{\normalsize}
+\newcommand{\ignore}[1]{}
+\newenvironment{enumeratesquish}{\begin{list}{\addtocounter{enumi}{1}\arabic{enumi}.}{\setlength{\itemsep}{-0.25em}\setlength{\leftmargin}{1em}\addtolength{\leftmargin}{\labelsep}}}{\end{list}}
+\newenvironment{itemizesquish}{\begin{list}{\setcounter{enumi}{0}\labelitemi}{\setlength{\itemsep}{-0.25em}\setlength{\labelwidth}{0.5em}\setlength{\leftmargin}{\labelwidth}\addtolength{\leftmargin}{\labelsep}}}{\end{list}}
+
+\bibpunct{(}{)}{;}{a}{,}{,}
+\newcommand{\nascomment}[1]{\textcolor{blue}{\textbf{[#1 --NAS]}}}
+
+
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{\thepage~of \pageref{lastpage}}
+\rfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\title{11-712:  NLP Lab Report}
+\author{David Bamman}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+
+
+\section{Basic Information about Akkadian}
+
+Akkadian is the oldest attested member of the Semitic language family used primarily between the 3rd and 1st millennia BCE.  It encompasses two central dialects: Assyrian, spoken largely in the Assyrian empire centered in northern Mesopotamia; and Babylonian, centered in the south.
+
+Akkadian texts were written using a cuneiform script adopted from Sumerian.  The cuneiform symbols largely represent syllables, though some denote logographic values (e.g., one symbol for the word ``man''). 
+The process by which a text is transcribed from a clay tablet includes the following:
+
+\begin{enumerate}
+\item Transliteration, in which the cuneiform signs are rendered into their syllabic values\footnote{Logograms are transliterated as capital letters, with homophones disambiguated with an index (e.g., $\textrm{\sc{KU}}_6$)}
+(let $S_n$ stand in for the signs):\footnote{Example due to \cite[72]{huehnergard}.}
+$$
+\underbrace{S_1}_{q\textrm{\'a}} \underbrace{S_2}_{ra} \underbrace{S_3}_{dum} \underbrace{S_4}_{na} \underbrace{S_5}_{ra} \underbrace{S_6}_{am} \underbrace{S_7}_{i} \underbrace{S_8}_{pu} \underbrace{S_9}_{\textrm{u\v{s}}}
+$$
+\item Normalization, in which the transliterated syllables are rendered into the lexical form of the word.  $$
+\textrm{qarr\=adum nar\^am \=\i pu\v{s}}
+$$
+
+Vowel length (long vs. short) and whether or not a consonant is doubled are important for distinguishing different words. Note that the original scribes may choose to syllabalize a word in several different ways, so that, for example, the lexical word \emph{i\v{s}arum} may be written in cuneiform as \emph{i-\v{s}a-rum} or \emph{i-\v{s}a-ru-um} \cite[71]{huehnergard}.
+\end{enumerate}
+
+As we have them in digitized form, Akkadian texts are generally transliterated, but not normalized.  A typical text looks like the following (Kt a/k 394):
+
+\begin{quote}
+um-ma wa-ak-l\'um-ma\\
+a-na k\`a-ri-im\\
+K\`a-ni-i\v{s}.ki\\
+q\'i-b\'i-ma
+\end{quote}
+
+
+\section{Past Work on the Morphology of Akkadian}
+
+The earliest computational work on Akkadian looks to be \cite{Kataja:1988:FDS:991635.991699}, which outlines a two-level framework for Akkadian word formation, seeing regular verbs as possessing ordered slots to be filled by (in order): person, root (and flection/vocalization), gender and number, optional subjunctive indicators, and optional object markers; nouns, analogously, are defined as (in order) stem, case and number, and optional possessive markers.  The authors provide about a dozen examples of useful phonological alternations, including the assimilation of $N$ before consonants and the assimilation of dentals occuring after other dentals.
+
+\cite{Macks:2002:PAV:1118637.1118638} describes work implementing an Akkadian morphological analyzer in Prolog (for the Babylonian dialect).  The anaylzer, available online,\footnote{\url{http://www.wiglaf.org/akkadian/}} parses G, D, and N stem verbs in the preterite, perfect, imperfect, durative, precative and vetitive tenses, yielding the verb stem (but not lexical form with vocalization), tense, person, number and gender.  The input verb token is required to be in normalized form, though the analyzer does retain some flexiblity by enabling wildcards for vowel length.
+
+\section{Available Resources}
+
+\section{Survey of Phenomena in Akkadian}
+
+\section{Initial Design}
+
+\section{System Analysis on Corpus A}
+
+\section{Lessons Learned and Revised Design}
+
+\section{System Analysis on Corpus B}
+
+\section{Final Revisions}
+
+\section{Future Work}
+
+
+\nocite{*}
+
+
+\bibliographystyle{plainnat}
+\bibliography{akkadian}
+\label{lastpage}
+\end{document}
