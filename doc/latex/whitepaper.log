@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.1.20)  16 JAN 2013 13:40
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.1.20)  18 JAN 2013 14:06
 entering extended mode
 \write18 enabled.
  %&-line parsing enabled.
@@ -347,7 +347,7 @@ Here is how much of TeX's memory you used:
  6617 multiletter control sequences out of 10000+50000
  17063 words of font info for 70 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 35i,11n,43p,705b,303s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 35i,11n,43p,1443b,295s stack positions out of 5000i,500n,6000p,200000b,5000s
 </usr/local/texlive/2007/texmf-dist/fonts/type1/bl
 uesky/cm/cmbx10.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/
 cmcsc10.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmex10.p
@@ -358,12 +358,13 @@ exmf-dist/fonts/type1/bluesky/cm/cmr12.pfb></usr/local/texlive/2007/texmf-dist/
 fonts/type1/bluesky/cm/cmr17.pfb></usr/local/texlive/2007/texmf-dist/fonts/type
 1/bluesky/cm/cmr6.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/c
 m/cmr8.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmr9.pfb>
-</usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmti10.pfb></usr/loc
-al/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmtt10.pfb></usr/local/texliv
-e/2007/texmf-dist/fonts/type1/bluesky/cm/cmtt9.pfb>
-Output written on whitepaper.pdf (3 pages, 93872 bytes).
+</usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmsy10.pfb></usr/loc
+al/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmti10.pfb></usr/local/texliv
+e/2007/texmf-dist/fonts/type1/bluesky/cm/cmtt10.pfb></usr/local/texlive/2007/te
+xmf-dist/fonts/type1/bluesky/cm/cmtt9.pfb>
+Output written on whitepaper.pdf (3 pages, 97719 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
+ 72 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

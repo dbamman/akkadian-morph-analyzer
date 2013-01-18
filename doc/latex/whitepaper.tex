@@ -90,9 +90,18 @@ The earliest computational work on Akkadian looks to be \cite{Kataja:1988:FDS:99
 
 \cite{Macks:2002:PAV:1118637.1118638} describes work implementing an Akkadian morphological analyzer in Prolog (for the Babylonian dialect).  The anaylzer, available online,\footnote{\url{http://www.wiglaf.org/akkadian/}} parses G, D, and N stem verbs in the preterite, perfect, imperfect, durative, precative and vetitive tenses, yielding the verb stem (but not lexical form with vocalization), tense, person, number and gender.  The input verb token is required to be in normalized form, though the analyzer does retain some flexiblity by enabling wildcards for vowel length.
 
+\cite{Barthelemy:1998:MAA:1621753.1621766} also describes work developing a two-level morphological analyzer for Old Babylonian verb forms (but without suffixes like enclitic particles or pronouns).  This work is very useful as a high-level overview of the problems involved in analyzing Akkadian verbs, and offers a useful description of Akkadian \emph{stems} (verbal structural classes, applicable to any root, marked by changes to prefixes, infixes and radical reduplication that impact the semantics of the verb, such as whether a verb is habitual, factitive, causative, passive, etc.).  In a manner similar to \cite{Kataja:1988:FDS:991635.991699}, this work decomposes a verb into nine slots, each ranging over a fixed vocabulary: the personal prefix, stem prefix, infix, first radical, infix, second radical reduplication, second radical (plus vocalization), third radical, and gender/number suffix, and then transforms the lexical form into a surface form through phonological transformations.  This work list a few general trends (e.g., the dissimiliation of \emph{bb} $\rightarrow$ \emph{mb}, \emph{ij} $\rightarrow$ {i}) but no explicit rules.  \cite{barthelemy2010} builds on this work by further decomposing the verb form into a tree-like structure, with the ``core'' (including the lexical class, voice and aspect) embedded within the personal (gender, number, etc.) affixes.
+
+
+
+
+Two commonalities among all prior work is that 1.) all require normalized forms as input, not the transcribed text that we have in the form of corpora; and 2.) all focus on the more complex verbal morphology; the simpler morphology of nouns and adjectives may be good low-hanging fruit.
+
 \section{Available Resources}
 
 \section{Survey of Phenomena in Akkadian}
+
+Strong vs. weak verb forms.
 
 \section{Initial Design}
 
