@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.1.20)  18 JAN 2013 14:06
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.1.20)  20 JAN 2013 12:00
 entering extended mode
 \write18 enabled.
  %&-line parsing enabled.
@@ -267,33 +267,58 @@ Package caption Info: rotating package v2.0 (or newer) detected on input line 3
 Package caption Info: sidecap package v1.4d (or newer) detected on input line 4
 16.
 )
+(/usr/local/texlive/2007/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks21
+\verbatim@line=\toks22
+\verbatim@in@stream=\read1
+)
+(/usr/local/texlive/2007/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2006/05/05 v1.1b Input encoding file
+\inpenc@prehook=\toks23
+\inpenc@posthook=\toks24
+
+(/usr/local/texlive/2007/texmf-dist/tex/latex/ucs/utf8x.def
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+(/usr/local/texlive/2007/texmf-dist/tex/latex/ucs/ucs.sty
+Package: ucs 2004/10/17 UCS: Unicode input support
+
+(/usr/local/texlive/2007/texmf-dist/tex/latex/ucs/data/uni-global.def
+File: uni-global.def 2004/10/17 UCS: Unicode global data
+)
+\uc@secondtry=\count111
+\uc@combtoks=\toks25
+\uc@combtoksb=\toks26
+\uc@temptokena=\toks27
+)
 (./whitepaper.aux)
 \openout1 = `whitepaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
 
 (/usr/local/texlive/2007/texmf-dist/tex/context/base/supp-pdf.tex
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
+\scratchcounter=\count112
 \scratchdimen=\dimen134
 \scratchbox=\box56
-\nofMPsegments=\count112
-\nofMParguments=\count113
-\MPscratchCnt=\count114
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\MPscratchCnt=\count115
 \MPscratchDim=\dimen135
-\MPnumerator=\count115
-\everyMPtoPDFconversion=\toks21
+\MPnumerator=\count116
+\everyMPtoPDFconversion=\toks28
 ) (/usr/local/texlive/2007/texmf-dist/tex/latex/ragged2e/ragged2e.sty
 Package: ragged2e 2003/03/25 v2.04 ragged2e Package (MS)
 
@@ -316,55 +341,71 @@ LaTeX Info: Redefining \selectfont on input line 125.
 \RaggedRightParindent=\skip72
 \JustifyingParindent=\skip73
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 52.
+(/usr/local/texlive/2007/texmf-dist/tex/latex/ucs/ucsencs.def
+File: ucsencs.def 2003/11/29 Fixes to fontencodings LGR, T3
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 55.
 
 (/usr/local/texlive/2007/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 52.
+LaTeX Font Info:    Try loading font information for U+msb on input line 55.
 
 (/usr/local/texlive/2007/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 52.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 55.
 
 (/usr/local/texlive/2007/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+wasy on input line 52.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 55.
 
 (/usr/local/texlive/2007/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 ) [1
 
-{/usr/local/texlive/2007/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./whit
-epaper.bbl
-[2]) [3] (./whitepaper.aux) ) 
+{/usr/local/texlive/2007/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(/usr/local/texlive/2007/texmf-dist/tex/latex/ucs/data/uni-1.def
+File: uni-1.def 2004/10/17 UCS: Unicode data U+0100..U+01FF
+)
+Overfull \hbox (9.09508pt too wide) in paragraph at lines 110--111
+[]\OT1/cmr/m/n/10.95 From this set, I ran-domly cre-ated two de-vel-op-ment cor
+-pora of 5,000 to-kens each (\OT1/cmtt/m/n/10.95 dev1.corpus.txt
+ []
+
+[2] (/usr/local/texlive/2007/texmf-dist/tex/latex/ucs/data/uni-0.def
+File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
+)
+(/usr/local/texlive/2007/texmf-dist/tex/latex/ucs/data/uni-30.def
+File: uni-30.def 2004/10/17 UCS: Unicode data U+1E00..U+1EFF
+) [3]
+(./whitepaper.bbl [4]) [5] (./whitepaper.aux) ) 
 Here is how much of TeX's memory you used:
- 3421 strings out of 94073
- 46705 string characters out of 1162978
- 106582 words of memory out of 1500000
- 6617 multiletter control sequences out of 10000+50000
- 17063 words of font info for 70 fonts, out of 1200000 for 2000
+ 5401 strings out of 94073
+ 70186 string characters out of 1162978
+ 123135 words of memory out of 1500000
+ 8569 multiletter control sequences out of 10000+50000
+ 17370 words of font info for 71 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 35i,11n,43p,1443b,295s stack positions out of 5000i,500n,6000p,200000b,5000s
-</usr/local/texlive/2007/texmf-dist/fonts/type1/bl
-uesky/cm/cmbx10.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/
-cmcsc10.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmex10.p
-fb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmmi10.pfb></usr/
-local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmmi8.pfb></usr/local/texl
-ive/2007/texmf-dist/fonts/type1/bluesky/cm/cmr10.pfb></usr/local/texlive/2007/t
-exmf-dist/fonts/type1/bluesky/cm/cmr12.pfb></usr/local/texlive/2007/texmf-dist/
-fonts/type1/bluesky/cm/cmr17.pfb></usr/local/texlive/2007/texmf-dist/fonts/type
-1/bluesky/cm/cmr6.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/c
-m/cmr8.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmr9.pfb>
-</usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmsy10.pfb></usr/loc
-al/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmti10.pfb></usr/local/texliv
-e/2007/texmf-dist/fonts/type1/bluesky/cm/cmtt10.pfb></usr/local/texlive/2007/te
-xmf-dist/fonts/type1/bluesky/cm/cmtt9.pfb>
-Output written on whitepaper.pdf (3 pages, 97719 bytes).
+ 35i,11n,43p,1443b,655s stack positions out of 5000i,500n,6000p,200000b,5000s
+</usr/local/texlive/2007/texmf-d
+ist/fonts/type1/bluesky/cm/cmbx10.pfb></usr/local/texlive/2007/texmf-dist/fonts
+/type1/bluesky/cm/cmcsc10.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/b
+luesky/cm/cmex10.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm
+/cmmi10.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmmi8.pf
+b></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmr10.pfb></usr/lo
+cal/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmr12.pfb></usr/local/texliv
+e/2007/texmf-dist/fonts/type1/bluesky/cm/cmr17.pfb></usr/local/texlive/2007/tex
+mf-dist/fonts/type1/bluesky/cm/cmr6.pfb></usr/local/texlive/2007/texmf-dist/fon
+ts/type1/bluesky/cm/cmr8.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bl
+uesky/cm/cmr9.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cm
+sy10.pfb></usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmti10.pfb>
+</usr/local/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmtt10.pfb></usr/loc
+al/texlive/2007/texmf-dist/fonts/type1/bluesky/cm/cmtt9.pfb>
+Output written on whitepaper.pdf (5 pages, 109857 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
+ 78 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
