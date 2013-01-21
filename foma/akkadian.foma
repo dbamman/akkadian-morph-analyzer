@@ -1,0 +1,90 @@
+! finish lowercasing accents on vowels, special consonants
+
+read lexc /Users/david/Documents/git/akkadian-morph-analyzer/foma/noun.lex
+define NounLexicon
+
+read lexc /Users/david/Documents/git/akkadian-morph-analyzer/fomaprep.lex
+define PrepLexicon
+
+read lexc /Users/david/Documents/git/akkadian-morph-analyzer/foma/name.lex
+define NameLexicon
+
+define Cleanup "^" -> 0;
+
+define Sign [a|a b|a d|a g|a l|a m|a n|a r|a š|a z|b a|b a d|b a g|b e|b é|b i|b í|b i d|b í d|b i l|b u|d a|d a b|d a l|d a m|d a n|d a r|d e|d i|d i b|d i l|d i m|d u|d ú r|e|e b|e d|e g|e h h|e l|e m|e n|è r|e r i|e š|e z|g a|g a l|g á m|g a š|g e|g i|g i d|g í d|g i n|g i š|g i z|g u b|g ú l|h a|h a d|h a l|h e|h i|h i r|h i š|h u|i|ì|i 1 4|i a|i a 5|i b|i d|i e|i g|i h|i i|i l|i l 5|i m|i n|i n a|i r|ì r|i r i|i š|i š 8|i u|i z|k a|k a l|k a m|k à r|k á s|k a š|k e|k i|k i d|k i n|k u|k u l|k u r|l a|l a b|l a d|l a h|l a m|l e|l i|l í|l í b|l ì b|l i g|l i h|l í l|l i m|l u|l u 4|l u m|m a|m a d|m a r|m e|m é|m e š|m i|m i d|m ì l|m i m|m u|n a|n a d|n e|n è|n i|n i d|n i m|n i n|n u|n ù|n u m|p a|p a g|p a r|p e|p é|p i|p í|p í d|p i l|p i r|p u|q á|q a d|q a l|q á m|q a r|q é|q í|q i d|q í d|q ú|q u b|q u l|q ú r|r a|r a g|r e|r é|r i|r í|r i b|r u|r ù|r u m|s à|s a h|s a l|s a r|s e|s é|s i|s í|s i b|s í h|s i n|s i r|s ú|s u h 4|s ú|s u n|ṣ a|ṣ a l|ṣ e|ṣ é|ṣ i|ṣ í|ṣ í l|ṣ u|ṣ ú|ṣ u m|ṣ u r|š a|š à|š a d|š a l|š a m|š a r|š à r|š e|š i|š i b|š i r|š ì r|š u|š u b|š u m|t a|t a b|t a g|t a l|t a m|t á r|t a š|t e|t i|t i l|t i m|t í š|t u|t ú|t u r|t u š|ṭ a|ṭ á|ṭ a l|ṭ a m|ṭ e|ṭ è|ṭ e 4|ṭ i|ṭ ì|ṭ i l|ṭ u|ṭ ù|ú|ù|u 4|u d|u g|u h|u l|u m|u r|ú r|ú s|u š|ú š|u z|w a|w e|w i|w u|z a|z a l|z e|z è|z i|z í|z i r|z i z|z u|z u m|z u r];
+
+define LowerCase	A (->) a ,, 
+					B (->) b ,, 
+					D (->) d ,, 
+					E (->) e ,, 
+					G (->) g ,, 
+					H (->) h ,, 
+					I (->) i ,, 
+					K (->) k ,, 
+					L (->) l ,, 
+					M (->) m ,, 
+					N (->) n ,, 
+					P (->) p ,,
+					Q (->) q ,, 
+					R (->) r ,, 
+					S (->) s ,, 
+					T (->) t ,, 
+					U (->) u ,, 
+					W (->) w ,, 
+					Z (->) z;
+
+
+define StripLong		ā -> a ,,
+						ē -> e ,,
+						ī -> i ,,
+						û -> u ,,
+						ū -> u ;
+
+define VowelDoubling 	a (->) a a ,,
+						e (->) e e ,,
+						i (->) i i ,,
+						o (->) o o ,,
+						u (->) u u ;
+
+define ConsonantSingling	b b (->) b ,,
+							d d (->) d ,,
+							g g (->) g ,,
+							h h (->) h ,,
+							k k (->) k ,,
+							l l (->) l ,,
+							m m (->) m ,,
+							n n (->) n ,,
+							p p (->) p ,,
+							q q (->) q ,,
+							r r (->) r ,,
+							s s (->) s ,,
+							š š (->) š ,,
+							ṣ ṣ (->) ṣ ,,
+							q q (->) q ,,
+							t t  (->) t ,,
+							ṭ ṭ (->) q ,,
+							w w (->) w ,,
+							z z (->) z ;
+
+
+define AcuteAccents		a (->) á ,,
+						e (->) é ,,
+						i (->) í ,,
+						o (->) ó ,,
+						u (->) ú ;
+
+define GraveAccents		a (->) à ,,
+						e (->) è ,,
+						i (->) ì ,,
+						o (->) ò ,,
+						u (->) ù ;
+
+define MarkSigns Sign @> ... "-" || _ Sign ;
+define SyllabizedWord [ Sign "-"]* Sign ;
+
+define Normalize LowerCase .o. Cleanup .o. StripLong .o. VowelDoubling .o. ConsonantSingling .o. AcuteAccents .o. GraveAccents .o. MarkSigns .o. SyllabizedWord ;
+
+define Grammar (NounLexicon | PrepLexicon | NameLexicon) .o. Cleanup .o. Normalize ;
+
+
+regex Grammar ;
