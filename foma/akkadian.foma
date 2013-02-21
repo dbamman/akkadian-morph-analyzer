@@ -3,15 +3,21 @@
 read lexc /Users/david/Documents/git/akkadian-morph-analyzer/foma/noun.lex
 define NounLexicon
 
-read lexc /Users/david/Documents/git/akkadian-morph-analyzer/fomaprep.lex
+read lexc /Users/david/Documents/git/akkadian-morph-analyzer/foma/prep.lex
 define PrepLexicon
 
 read lexc /Users/david/Documents/git/akkadian-morph-analyzer/foma/name.lex
 define NameLexicon
 
-define Cleanup "^" -> 0;
+read lexc /Users/david/Documents/git/akkadian-morph-analyzer/foma/adj.lex
+define AdjLexicon
 
-define Sign [a|a b|a d|a g|a l|a m|a n|a r|a š|a z|b a|b a d|b a g|b e|b é|b i|b í|b i d|b í d|b i l|b u|d a|d a b|d a l|d a m|d a n|d a r|d e|d i|d i b|d i l|d i m|d u|d ú r|e|e b|e d|e g|e h h|e l|e m|e n|è r|e r i|e š|e z|g a|g a l|g á m|g a š|g e|g i|g i d|g í d|g i n|g i š|g i z|g u b|g ú l|h a|h a d|h a l|h e|h i|h i r|h i š|h u|i|ì|i 1 4|i a|i a 5|i b|i d|i e|i g|i h|i i|i l|i l 5|i m|i n|i n a|i r|ì r|i r i|i š|i š 8|i u|i z|k a|k a l|k a m|k à r|k á s|k a š|k e|k i|k i d|k i n|k u|k u l|k u r|l a|l a b|l a d|l a h|l a m|l e|l i|l í|l í b|l ì b|l i g|l i h|l í l|l i m|l u|l u 4|l u m|m a|m a d|m a r|m e|m é|m e š|m i|m i d|m ì l|m i m|m u|n a|n a d|n e|n è|n i|n i d|n i m|n i n|n u|n ù|n u m|p a|p a g|p a r|p e|p é|p i|p í|p í d|p i l|p i r|p u|q á|q a d|q a l|q á m|q a r|q é|q í|q i d|q í d|q ú|q u b|q u l|q ú r|r a|r a g|r e|r é|r i|r í|r i b|r u|r ù|r u m|s à|s a h|s a l|s a r|s e|s é|s i|s í|s i b|s í h|s i n|s i r|s ú|s u h 4|s ú|s u n|ṣ a|ṣ a l|ṣ e|ṣ é|ṣ i|ṣ í|ṣ í l|ṣ u|ṣ ú|ṣ u m|ṣ u r|š a|š à|š a d|š a l|š a m|š a r|š à r|š e|š i|š i b|š i r|š ì r|š u|š u b|š u m|t a|t a b|t a g|t a l|t a m|t á r|t a š|t e|t i|t i l|t i m|t í š|t u|t ú|t u r|t u š|ṭ a|ṭ á|ṭ a l|ṭ a m|ṭ e|ṭ è|ṭ e 4|ṭ i|ṭ ì|ṭ i l|ṭ u|ṭ ù|ú|ù|u 4|u d|u g|u h|u l|u m|u r|ú r|ú s|u š|ú š|u z|w a|w e|w i|w u|z a|z a l|z e|z è|z i|z í|z i r|z i z|z u|z u m|z u r];
+define Cleanup "^" -> 0;
+define StripAlephs "ˀ" -> 0;
+
+define Sign [A|A N . N A|A N . N A . a|A N . N A . a k|A N . N A . k i|A N D U L|A N Š E . H I|A N Š E . h i|A h|A l|A m|A r|A š u r|A š š u r|B A|B a|B e|B u|B u r|B é|D A M . G À R|D A M . Q A R|D A M . Q A R . r i|D I N G I R|D U 1 0|D U M U|D a|D a m|D a n|D u|D Ù G|E|E n|E r|G A|G A L|G I 6|G a|G Í N|G Í N . T A|G Ú|H a|H i|H u|I|I R|I T U . 1 . K A M|I b|I d|I d d i n|I l 5|I m|I n|I r|I s|I š|I š t a r|K B|K i|K u|K u r|K Ù . B|K Ù . B . a p|K Ù . B . p í|K Ù . B A B B A R|K Ù . B A B B A R . a p|K Ù . B A B B A R . p ì|K Ù . B A B B A R . p í|K Ù . B A B B A R . á p|K Ù . G I|K Ù . p ì|K à|K à r|L U G A L|L a|L i|L o E a|L u|L á|M A R . T U|M a|M e|M u|N I|N a|N i|N u|P u|P u z u r|P u z u r 4|P u z ú r|P á|P è|P ì|P í|Q a r|Q á|R a s .|S A . T U|S I G 5|S I P A|S u e n|S à|S á|S ú|T U G k u|T a|T i|T u r 4|T Ú G|T Ú G . H I|T Ú G . H I . A . t í|T Ú G . H I . t í|T Ú G . H I . t ù|T Ú G . t i|T Ú G . t í|T Ú G k u|T á r|T é|T í|T ù|U|U R U D U|U R U D U . a|U R U D U . i|U T U|U T U . š i|U m|U r|U š|W a|W e|Z I|Z U|Z a|Z i|Z u|Z z .|a|a b|a d|a g|a h|a k|a l|a m|a n|a p|a q|a r|a s|a t|a z|a š|a ṣ|a ṭ|b a|b a r|b e|b i|b i 4|b i l|b u|b u r|b á|b é|b ì|b í|c a .|d|d . A|d . E N . L I L 2|d . E N . Z U|d . E n|d . I M|d . M A R . T U|d . M U Š|d . N I N . Š U B U R|d . U T U|d . U T U . t a p|d . U T U . š i|d I M|d M A R . T U|d U T U|d a|d a m|d a n|d a r|d e 8|d e 9|d i|d i m|d u|d u m|d á|d ì|d í|e|e b|e h|e l|e m|e n|e n 6|e p|e q|e r|e t|e z|e š|e ṣ|e ṭ|e š 1 5|g a|g a l|g a m|g e 5|g i|g i 5|g u|g u 5|g à r|g á m|g á n|h a|h e|h i|h u|i|i b|i d|i g|i h|i k|i l|i l 5|i m|i n|i n 4|i p|i q|i r|i s|i t|i z|i š|i ṣ|i ṭ|i š . k i|k a|k a m|k e|k i|k u|k u l|k u m|k u r|k à|k á|k á l|k á n|k ú l|l a|l a 1|l a m|l a m 5|l e|l i|l i k|l i m|l i m . K I|l i m . k i|l i m k i|l i q|l u|l á|l í|l í l|l ú m|m . I|m a|m a r|m a »|m a š|m e|m i|m u|m u r|m ì|n a|n a . T A|n a m|n i|n i m|n u|n u m|n à m|n é|p a|p e|p i|p u|p u r|p à|p á|p á r|p è|p é|p ì|p í|q a|q a l|q a m|q a r|q e|q i|q u|q u l|q á|q á m|q é|q í|q ú|q ú l|q ú r|r a|r e|r i|r i k|r u|s a|s i|s u|s à|s á|s é|s í|s ú|t a|t a b|t a l|t a m|t a m 4|t a p|t a r|t a š|t e 9|t e m|t i|t i m|t u|t u m|t u m 8|t u p|t u r 4|t á|t á k|t á m|t á r|t è|t é|t ì|t í|t í m|t ù|t ú|u|u 4|u b|u d|u g|u h|u k|u l|u m|u n|u p|u q|u r|u s|u t|u z|u š|u ṣ|u ṭ|u š 1 0|w a|w e|w i|w u|x|z a|z a l|z e|z i|z u|Á b|Á s|Ú|á b|á p|á š|ì|ì š|í|ù|ù h|ú|ú h|ú s|ú z|ú ṣ|Š E|Š E Š|Š a|š a|ṣ a|ṭ a|š a l|Š a r|š a r|š e|ṣ e|š i|ṣ i|ṭ i m|Š u|š u|ṣ u|š u m|ṭ u p|š u r|ṣ u r|ṭ u r 4|Ṭ á|ṭ á|Š á l|š á l|ṭ á m|Š é|š é|ṣ é|ṭ é|ṭ ì|Š í|š í|Ṣ í|ṣ í|ṭ í|ṭ ù|š ù r|š ú|ṣ ú|š ú r];
+
+!define Sign [a|a b|a d|a g|a l|a m|a n|a r|a š|a z|b a|b a d|b a g|b e|b é|b i|b í|b i d|b í d|b i l|b u|d a|d a b|d a l|d a m|d a n|d a r|d e|d i|d i b|d i l|d i m|d u|d ú r|e|e b|e d|e g|e h h|e l|e m|e n|è r|e r i|e š|e z|g a|g a l|g á m|g a š|g e|g i|g i d|g í d|g i n|g i š|g i z|g u b|g ú l|h a|h a d|h a l|h e|h i|h i r|h i š|h u|i|ì|i 1 4|i a|i a 5|i b|i d|i e|i g|i h|i i|i l|i l 5|i m|i n|i n a|i r|ì r|i r i|i š|i š 8|i u|i z|k a|k a l|k a m|k à r|k á s|k a š|k e|k i|k i d|k i n|k u|k u l|k u r|l a|l a b|l a d|l a h|l a m|l e|l i|l í|l í b|l ì b|l i g|l i h|l í l|l i m|l u|l u 4|l u m|m a|m a d|m a r|m e|m é|m e š|m i|m i d|m ì l|m i m|m u|n a|n a d|n e|n è|n i|n i d|n i m|n i n|n u|n ù|n u m|p a|p a g|p a r|p e|p é|p i|p í|p í d|p i l|p i r|p u|q á|q a d|q a l|q á m|q a r|q é|q í|q i d|q í d|q ú|q u b|q u l|q ú r|r a|r a g|r e|r é|r i|r í|r i b|r u|r ù|r u m|s à|s a h|s a l|s a r|s e|s é|s i|s í|s i b|s í h|s i n|s i r|s ú|s u h 4|s ú|s u n|ṣ a|ṣ a l|ṣ e|ṣ é|ṣ i|ṣ í|ṣ í l|ṣ u|ṣ ú|ṣ u m|ṣ u r|š a|š à|š a d|š a l|š a m|š a r|š à r|š e|š i|š i b|š i r|š ì r|š u|š u b|š u m|t a|t a b|t a g|t a l|t a m|t á r|t a š|t e|t i|t i l|t i m|t í š|t u|t u m|t ú|t u r|t u š|ṭ a|ṭ á|ṭ a l|ṭ a m|ṭ e|ṭ è|ṭ e 4|ṭ i|ṭ ì|ṭ i l|ṭ u|ṭ ù|ú|ù|u 4|u d|u g|u h|u l|u m|u r|ú r|ú s|u š|ú š|u z|w a|w e|w i|w u|z a|z a l|z e|z è|z i|z í|z i r|z i z|z u|z u m|z u r];
 
 define LowerCase	A (->) a ,, 
 					B (->) b ,, 
@@ -33,7 +39,6 @@ define LowerCase	A (->) a ,,
 					W (->) w ,, 
 					Z (->) z;
 
-
 define StripLong		ā -> a ,,
 						ē -> e ,,
 						ī -> i ,,
@@ -50,6 +55,7 @@ define ConsonantSingling	b b (->) b ,,
 							d d (->) d ,,
 							g g (->) g ,,
 							h h (->) h ,,
+							ḫ ḫ (->) ḫ ,,
 							k k (->) k ,,
 							l l (->) l ,,
 							m m (->) m ,,
@@ -79,12 +85,12 @@ define GraveAccents		a (->) à ,,
 						o (->) ò ,,
 						u (->) ù ;
 
-define MarkSigns Sign @> ... "-" || _ Sign ;
+define MarkSigns Sign (->) ... "-" || _ Sign ;
 define SyllabizedWord [ Sign "-"]* Sign ;
 
-define Normalize LowerCase .o. Cleanup .o. StripLong .o. VowelDoubling .o. ConsonantSingling .o. AcuteAccents .o. GraveAccents .o. MarkSigns .o. SyllabizedWord ;
+define Normalize LowerCase .o. StripAlephs .o. Cleanup .o. StripLong .o. VowelDoubling .o. ConsonantSingling .o. AcuteAccents .o. GraveAccents .o. MarkSigns .o. SyllabizedWord ;
 
-define Grammar (NounLexicon | PrepLexicon | NameLexicon) .o. Cleanup .o. Normalize ;
+define Grammar (NounLexicon | PrepLexicon | NameLexicon | AdjLexicon) .o. Cleanup .o. Normalize ;
 
 
 regex Grammar ;
