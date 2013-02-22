@@ -1,10 +1,11 @@
 !!!akkadian.lexc!!!
 
-Multichar_Symbols +Prep
+Multichar_Symbols +Prep +Adv
 
 LEXICON Root
 
 Preposition ;
+Adverb ;
 
 LEXICON Preposition
 
@@ -33,7 +34,29 @@ kīam Prep ;
 kīma Prep ;
 lāma Prep ;
 mala Prep ;
+umma	Prep;
+
+ana+šummi+Prep:ašummi	#;
+ana+ṣēr+Prep:aṣēr	#;
+
+LEXICON Adverb
+
+šumma	Adv;
+ula	Adv;
+ahamma	Adv;
+mišum	Adv;
+inūmi Adv;
+mimma	Adv; ! something, anything
+apputum Adv;
+
+ani+Adv:anim	#;	! also deitic (declines)
+
+ammakam	Adv;
 
 LEXICON Prep
 
 +Prep:0	#;
+
+LEXICON Adv
+
++Adv:0 #;

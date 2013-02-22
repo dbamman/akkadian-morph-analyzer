@@ -1,7 +1,7 @@
 !!!akkadian.lexc!!!
 ! figure out capitalization, check hyphens
 
-Multichar_Symbols +Name
+Multichar_Symbols +Name +DeclinableName
 
 LEXICON Root
 
@@ -9,12 +9,15 @@ Names ;
 
 LEXICON Names
 
+A-šùr Name;
+Kaniš Name;
+
 Pūšu-kēn Name ;
 Puzur-Aššur Name ;
 Imdī-ilum Name ;
 Innāya Name ;
 Aššur-nādā Name ;
-Šu-Anum Name ;
+ŠuAn DeclinableName ;
 Aššur-imittī Name ;
 Aššur-malik Name ;
 Buzazu Name ;
@@ -719,3 +722,44 @@ A-i) Name ;
 LEXICON Name
 
 +Name:0	#;
+
+
+LEXICON DeclinableName
+
++Name:0	#;
+
++Name+Masc+Sg+Nom:^um	#;
++DeclinableName+Masc+Sg+Gen:^im	#;
++DeclinableName+Masc+Sg+Acc:^am	#;
+
++DeclinableName+Masc+Dual+Nom:^ān	#;
++DeclinableName+Masc+Dual+Obl:^īn	#;
+
++DeclinableName+Masc+Pl+Nom:^ū	#;
++DeclinableName+Masc+Pl+Obl:^ī	#;
+
++DeclinableName+Masc+1csPoss:^ī	#;
++DeclinableName+Masc+2msPoss:^ka	#;
++DeclinableName+Masc+2fsPoss:^ki	#;
++DeclinableName+Masc+3msPoss:^šu	#;
++DeclinableName+Masc+3fsPoss:^ša	#;
+
++DeclinableName+Masc+1cpPoss:^ni	#;
++DeclinableName+Masc+2mpPoss:^kunu	#;
++DeclinableName+Masc+2fpPoss:^kina	#;
++DeclinableName+Masc+3mpPoss:^šunu	#;
++DeclinableName+Masc+3fpPoss:^šina	#;
+
++DeclinableName+Masc+Pl+1csPoss:^ī^ī	#;
++DeclinableName+Masc+Pl+2msPoss:^ī^ka	#;
++DeclinableName+Masc+Pl+2fsPoss:^ī^ki	#;
++DeclinableName+Masc+Pl+3msPoss:^ī^šu	#;
++DeclinableName+Masc+Pl+3fsPoss:^ī^ša	#;
+
++DeclinableName+Masc+Pl+1cpPoss:^ī^ni	#;
++DeclinableName+Masc+Pl+2mpPoss:^ī^kunu	#;
++DeclinableName+Masc+Pl+2fpPoss:^ī^kina	#;
++DeclinableName+Masc+Pl+3mpPoss:^ī^šunu	#;
++DeclinableName+Masc+Pl+3fpPoss:^ī^šina	#;
+
+

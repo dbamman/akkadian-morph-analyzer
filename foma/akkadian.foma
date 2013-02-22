@@ -12,8 +12,13 @@ define NameLexicon
 read lexc /Users/david/Documents/git/akkadian-morph-analyzer/foma/adj.lex
 define AdjLexicon
 
-define Cleanup "^" -> 0;
+define Cleanup "^" -> 0,
+				"y" -> 0;
+
 define StripAlephs "ˀ" -> 0;
+define DINGIR [D I N G I R];
+define Dental [d|t|ṭ];
+define Sibilants [z|s|š|ṣ|ś];
 
 define Sign [A|A N . N A|A N . N A . a|A N . N A . a k|A N . N A . k i|A N D U L|A N Š E . H I|A N Š E . h i|A h|A l|A m|A r|A š u r|A š š u r|B A|B a|B e|B u|B u r|B é|D A M . G À R|D A M . Q A R|D A M . Q A R . r i|D I N G I R|D U 1 0|D U M U|D a|D a m|D a n|D u|D Ù G|E|E n|E r|G A|G A L|G I 6|G a|G Í N|G Í N . T A|G Ú|H a|H i|H u|I|I R|I T U . 1 . K A M|I b|I d|I d d i n|I l 5|I m|I n|I r|I s|I š|I š t a r|K B|K i|K u|K u r|K Ù . B|K Ù . B . a p|K Ù . B . p í|K Ù . B A B B A R|K Ù . B A B B A R . a p|K Ù . B A B B A R . p ì|K Ù . B A B B A R . p í|K Ù . B A B B A R . á p|K Ù . G I|K Ù . p ì|K à|K à r|L U G A L|L a|L i|L o E a|L u|L á|M A R . T U|M a|M e|M u|N I|N a|N i|N u|P u|P u z u r|P u z u r 4|P u z ú r|P á|P è|P ì|P í|Q a r|Q á|R a s .|S A . T U|S I G 5|S I P A|S u e n|S à|S á|S ú|T U G k u|T a|T i|T u r 4|T Ú G|T Ú G . H I|T Ú G . H I . A . t í|T Ú G . H I . t í|T Ú G . H I . t ù|T Ú G . t i|T Ú G . t í|T Ú G k u|T á r|T é|T í|T ù|U|U R U D U|U R U D U . a|U R U D U . i|U T U|U T U . š i|U m|U r|U š|W a|W e|Z I|Z U|Z a|Z i|Z u|Z z .|a|a b|a d|a g|a h|a k|a l|a m|a n|a p|a q|a r|a s|a t|a z|a š|a ṣ|a ṭ|b a|b a r|b e|b i|b i 4|b i l|b u|b u r|b á|b é|b ì|b í|c a .|d|d . A|d . E N . L I L 2|d . E N . Z U|d . E n|d . I M|d . M A R . T U|d . M U Š|d . N I N . Š U B U R|d . U T U|d . U T U . t a p|d . U T U . š i|d I M|d M A R . T U|d U T U|d a|d a m|d a n|d a r|d e 8|d e 9|d i|d i m|d u|d u m|d á|d ì|d í|e|e b|e h|e l|e m|e n|e n 6|e p|e q|e r|e t|e z|e š|e ṣ|e ṭ|e š 1 5|g a|g a l|g a m|g e 5|g i|g i 5|g u|g u 5|g à r|g á m|g á n|h a|h e|h i|h u|i|i b|i d|i g|i h|i k|i l|i l 5|i m|i n|i n 4|i p|i q|i r|i s|i t|i z|i š|i ṣ|i ṭ|i š . k i|k a|k a m|k e|k i|k u|k u l|k u m|k u r|k à|k á|k á l|k á n|k ú l|l a|l a 1|l a m|l a m 5|l e|l i|l i k|l i m|l i m . K I|l i m . k i|l i m k i|l i q|l u|l á|l í|l í l|l ú m|m . I|m a|m a r|m a »|m a š|m e|m i|m u|m u r|m ì|n a|n a . T A|n a m|n i|n i m|n u|n u m|n à m|n é|p a|p e|p i|p u|p u r|p à|p á|p á r|p è|p é|p ì|p í|q a|q a l|q a m|q a r|q e|q i|q u|q u l|q á|q á m|q é|q í|q ú|q ú l|q ú r|r a|r e|r i|r i k|r u|s a|s i|s u|s à|s á|s é|s í|s ú|t a|t a b|t a l|t a m|t a m 4|t a p|t a r|t a š|t e 9|t e m|t i|t i m|t u|t u m|t u m 8|t u p|t u r 4|t á|t á k|t á m|t á r|t è|t é|t ì|t í|t í m|t ù|t ú|u|u 4|u b|u d|u g|u h|u k|u l|u m|u n|u p|u q|u r|u s|u t|u z|u š|u ṣ|u ṭ|u š 1 0|w a|w e|w i|w u|x|z a|z a l|z e|z i|z u|Á b|Á s|Ú|á b|á p|á š|ì|ì š|í|ù|ù h|ú|ú h|ú s|ú z|ú ṣ|Š E|Š E Š|Š a|š a|ṣ a|ṭ a|š a l|Š a r|š a r|š e|ṣ e|š i|ṣ i|ṭ i m|Š u|š u|ṣ u|š u m|ṭ u p|š u r|ṣ u r|ṭ u r 4|Ṭ á|ṭ á|Š á l|š á l|ṭ á m|Š é|š é|ṣ é|ṭ é|ṭ ì|Š í|š í|Ṣ í|ṣ í|ṭ í|ṭ ù|š ù r|š ú|ṣ ú|š ú r];
 
@@ -48,7 +53,6 @@ define StripLong		ā -> a ,,
 define VowelDoubling 	a (->) a a ,,
 						e (->) e e ,,
 						i (->) i i ,,
-						o (->) o o ,,
 						u (->) u u ;
 
 define ConsonantSingling	b b (->) b ,,
@@ -72,23 +76,49 @@ define ConsonantSingling	b b (->) b ,,
 							w w (->) w ,,
 							z z (->) z ;
 
+define Contraction	a a (->) a ,,
+					a i (->) e ,,
+					a u (->) u ,,
+					i a (->) a ,,
+					i i (->) i ,,
+					i u (->) u ,,
+					u a (->) a ,,
+					u i (->) i ,,
+					u u (->) u ,,
+					i l u m (->) DINGIR ,,
+					i l ī (->) DINGIR ,,
+					Dental Sibilant (->) "ss" ;
+
+define Het2H	ḫ (->) h ;
 
 define AcuteAccents		a (->) á ,,
 						e (->) é ,,
 						i (->) í ,,
-						o (->) ó ,,
+						i (->) e ,,
 						u (->) ú ;
+
+define NoMimation	m (->) 0 || _ .#. ;
 
 define GraveAccents		a (->) à ,,
 						e (->) è ,,
 						i (->) ì ,,
-						o (->) ò ,,
 						u (->) ù ;
+
+define HigherSigns	Sign (->) ... "2" ,,
+					Sign (->) ... "3" ,,
+					Sign (->) ... "4" ,,
+					Sign (->) ... "5" ,,
+					Sign (->) ... "6" ,,
+					Sign (->) ... "7" ,,
+					Sign (->) ... "8" ,,
+					Sign (->) ... "9" ;
+					!Sign (->) ... "x" ,
+					!Sign (->) ... "X" ;
 
 define MarkSigns Sign (->) ... "-" || _ Sign ;
 define SyllabizedWord [ Sign "-"]* Sign ;
 
-define Normalize LowerCase .o. StripAlephs .o. Cleanup .o. StripLong .o. VowelDoubling .o. ConsonantSingling .o. AcuteAccents .o. GraveAccents .o. MarkSigns .o. SyllabizedWord ;
+define Normalize LowerCase .o. StripAlephs .o. Cleanup .o. StripLong .o. VowelDoubling .o. ConsonantSingling .o. Contraction .o. AcuteAccents .o. GraveAccents .o. NoMimation .o. HigherSigns .o. MarkSigns .o. SyllabizedWord ;
 
 define Grammar (NounLexicon | PrepLexicon | NameLexicon | AdjLexicon) .o. Cleanup .o. Normalize ;
 

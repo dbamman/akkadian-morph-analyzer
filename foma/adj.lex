@@ -253,7 +253,9 @@ LEXICON Adj
 +Adj+Masc+Sg+Acc:^am	#;
 
 +Adj+Masc+Pl+Nom:^ūtum	#;
-+Adj+Masc+Pl+Obl:^ūim	#;
++Adj+Masc+Pl+Obl:^ūtim	#;
+
+!
 
 +Adj+Fem+Sg+Nom:^t^um	#;
 +Adj+Fem+Sg+Gen:^t^im	#;
@@ -262,6 +264,7 @@ LEXICON Adj
 +Adj+Fem+Pl+Nom:^ātum	#;
 +Adj+Fem+Pl+Obl:^ātim	#;
 
+!
 
 +Adj+Fem+Sg+Nom:^at^um	#;
 +Adj+Fem+Sg+Gen:^at^im	#;
