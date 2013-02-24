@@ -54,5 +54,5 @@ def main(parseFile, filename):
     file.close()
 
 
-# USAGE python parse text.txt parses.txt
+# USAGE python parse parses.txt text.txt 
 main(sys.argv[1], sys.argv[2])
