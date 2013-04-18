@@ -1,0 +1,58 @@
+Multichar_Symbols @P.STEM.G@ @P.INIT_I.ON@ @P.INIT_TA.ON@ @P.INIT_A.ON@ @P.INIT_NI.ON@ @P.FINAL_U.ON@ @P.FINAL_A.ON@ @R.INIT_I.ON@ @D.FINAL_U.ON@ @R.INIT_TA.ON@ @R.FINAL_I.ON@ @P.FINAL_I.ON@ @R.INIT_A.ON@ @R.INIT_NI.ON@ @R.INIT_I.ON@ @R.FINAL_U.ON@ @R.FINAL_A.ON@ R1 R2 R3 R4 V1 +G +Pret +Dur +G+Dur @D.INIT_I.ON@ @D.INIT_TA.ON@ @D.INIT_A.ON@ @D.INIT_NI.ON@ @P.PREFIX.ON@ @D.PREFIX.ON@ +G+Imp
+
+
+LEXICON ROOT
+
+@P.STEM.G@:@P.STEM.G@ G_Root ;
+Verb ;
+
+LEXICON G_Root
+
+@P.PREFIX.ON@@P.INIT_I.ON@:@P.PREFIX.ON@@P.INIT_I.ON@i^ Verb ;
+@P.PREFIX.ON@@P.INIT_TA.ON@:@P.PREFIX.ON@@P.INIT_TA.ON@ta^ Verb ;
+@P.PREFIX.ON@@P.INIT_A.ON@:@P.PREFIX.ON@@P.INIT_A.ON@a^ Verb ;
+@P.PREFIX.ON@@P.INIT_NI.ON@:@P.PREFIX.ON@@P.INIT_NI.ON@ni^ Verb ;
+
+
+
+LEXICON Verb
+
+saraqum:R1^s^R2^r^R3^i^V1^q^R4 Direction ;
+
+LEXICON Direction
+
+Suff ;
+Imperative ;
+
+LEXICON Imperative
+
+@D.PREFIX.ON@+2MS+G+Imp:+G+Imp	#;
+@D.PREFIX.ON@+2FS+G+Imp:^i+G+Imp	#;
+@D.PREFIX.ON@+2CS+G+Imp:^a+G+Imp	#;
+
+
+LEXICON Suff
+
+@R.INIT_A.ON@+1CS:0 GFinal;
+@R.INIT_I.ON@+3CS:0 GFinal;
+@R.INIT_TA.ON@+2MS:0 GFinal;
+@R.INIT_NI.ON@+1CP:0 GFinal;
+
+@P.FINAL_U.ON@:@P.FINAL_U.ON@^u	Final ;
+@P.FINAL_A.ON@:@P.FINAL_A.ON@^a	Final ;
+@P.FINAL_I.ON@:@P.FINAL_I.ON@^i	Final ;
+
+
+LEXICON Final
+
+@R.INIT_TA.ON@@R.FINAL_I.ON@+2FS:0	GFinal;
+@R.INIT_I.ON@@R.FINAL_U.ON@+3MP:0	GFinal;
+@R.INIT_I.ON@@R.FINAL_A.ON@+3FP:0	GFinal;
+@R.INIT_TA.ON@@R.FINAL_A.ON@+2CP:0	GFinal;
+
+
+
+LEXICON GFinal
+
++G+Pret	#;
++G+Dur	#;

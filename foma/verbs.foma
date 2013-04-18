@@ -1,0 +1,13 @@
+read lexc /Users/david/Documents/git/akkadian-morph-analyzer/foma/verbs.lex
+define VerbLexicon ;
+
+! fill out the rest of the root consonants
+define Double r -> "rr"  || _ "^" R3 ?* "+G+Dur";
+
+! fill out the rest of the vowels
+define Double [..] -> i  || _ "^" R2 ?* "i" "^" V1 ?* "+G+Imp";
+
+define Cleanup [R1|R2|R3|R4|V1|"^"] -> 0 ;
+
+define Grammar VerbLexicon .o. Double .o. Cleanup;
+regex Grammar ;
