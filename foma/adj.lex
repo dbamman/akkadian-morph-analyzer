@@ -10,24 +10,9 @@ LEXICON MainAdj
 
 (w)arq	Adj;
 (w)atr	Adj;
-**Ušu/inalam	Adj;
-*Ara	Adj;
-*Burušna	Adj;
-*Kiša	Adj;
-*Kušamman	Adj;
-*Lubušta	Adj;
-*Luḫa	Adj;
-*Tadmur	Adj;
-*Zitlun(-)	Adj;
-*ari	Adj;
-*Šašasama	Adj;
-*Ḫaššum	Adj;
-*Ḫiḫia	Adj;
-*Šurun	Adj;
 Alkuwa	Adj;
 Amkuwa	Adj;
 Amur(r)ī	Adj;
-Anian	Adj;
 Aššurī	Adj;
 Barr	Adj;
 Burušḫaddum	Adj;
