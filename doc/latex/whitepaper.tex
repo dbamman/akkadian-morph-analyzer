@@ -115,15 +115,76 @@ From this set, I randomly created two development corpora of 5,000 tokens each (
 
 4 cases (nominative, genitive, accusative, oblique), 2 genders (masculine, feminine), 3 numbers (singular, dual, plural).  Inflections are all suffixes.  In OB, the dual is restricted to body parts (eyes, feet, etc.).  After OB, final m and n no longer appear.
 
-Strong vs. weak verb forms.
+\subsection{Verbs.} Verbs in Akkadian exhibit a complex array of prefixes, suffixes and infixes across a number of different tenses (Preterative, Durative, Imperative and Perfect) and ``stem types.''  (G, D, Š, N), each of which can be inflected in all tenses and which individually have different semantic interpretations (G stems verbs denote a basic, ground meaning [the \emph{Grundstamm}]; D verbs carry a causative meaning, or ``pluralistic'' actions (Huehergard p. 256), actions which take place on a number of objects);  Š verbs are also causative; N verbs denote the passive or middle voice).  A simple example of the complexity involved in roots and patterns is the following perfect inflection of the root  \texttt{šrq} (``steal''):
+
+\begin{verbatim}
+_  š _  r _ q _                # Root (steal)
+ta _ ta _ 0 _ ī                # G Stem, Perfect, 2nd person feminine singular
+\end{verbatim}
+
+In this case, the prefix \texttt{ta-} and the suffix \texttt{-ī} together form a 2nd person fem. sing. marker (specific to the perfect tense; analogues in this position pair are found in other tenses as well); the infix \texttt{-ta-} is a marker of the perfect tense.  The thematic vowel usually found between radicals 2 and 3 is here deleted due to a dispreferred phonological sequence of two short vowels.  This results in the form \emph{taštarqī},  ``you (sing. f.) stole.''
 
 \section{Initial Design}
 
+
+The initial system design focused on 1.) the morphologically easier problem of modeling noun, adjectives, names, pronouns, prepositions and adverbs and 2.) the problem of transforming a ``normal'' form (as would be seen in a textbook) to a transliterated one (as would be seen in an inscription).
+
+\paragraph{Morphology.}All morphological information on nouns, adjectives and names comes in the form of inflected suffixes for gender, number, case, posession and several enclitics.  I modeled these by generating them all in the lexicon, running each noun type through several chains, each of which stacked different information onto both the upper and lower side of the transducer (e.g., base form $\rightarrow$ person/number/case $\rightarrow$ optional possessive marker $\rightarrow$ optional enclitic \texttt{-ma} $\rightarrow$ optional enclitic \texttt{-ta}.  Rewrite rules that apply to all phonological sequences (e.g., a sequence of \texttt{a} and \texttt{u} contracting to \texttt{a}) were then performed in a subsequent stage.
+
+To fill out the base forms, I extracted 1918 nouns and 235 adjectives from a custom Old Assyrian lexicon created by an Assyriologist; I extracted 625 names from a structured database of Old Assyrian letters (where the transliterated forms of the named entities are known); and I manually input 40 indeclinable prepositions and adverbs in consultation with my informant.
+
+\paragraph{Transliteration.} As observed in the data we have available, Akkadian words are written using a fixed vocabulary of cuneiform signs; if the sequence of letters in a word does not allow for any valid segmentation into signs, the word is emended (through the addition/deletion of vowels, duplication/deduplication of consonants) to fit the sign inventory.  To capture this constraint, I extracted all unique sign patterns used in data (i.e., all sequences of letters delimited by the sign divider \texttt{-}) to create a vocabulary of 455 signs (e.g., \texttt{sa}, \texttt{si}, \texttt{su}, \texttt{sà}, \texttt{sá}, \texttt{sé}, \texttt{sí}, \texttt{sú}, \texttt{ta}, \texttt{tab}, \texttt{tal}, \texttt{tam}).  I then required a valid word to be comprised entirely of these signs (in a manner analogous to syllabification):
+
+\begin{verbatim}
+define ValidWord [ Sign "-"]* Sign ;
+\end{verbatim}
+
+To be sure to generate forms that can result in a valid word, I opted to overgeneralize a normalized form to a transliterated one, optionally duplicating or de-duplicating all consonants and vowels, eliding nasals \texttt{m} and \texttt{n} before other consonants, and optionally subjecting the word form to mimation (deletion of word-final \texttt{m}).  This overgenerates forms but allows us to capture varability among different scribes (who may choose to engrave a word in many different ways).
+
+\paragraph{Default.}
+
+As a default guesser, all words ending in the suffixes \texttt{-um}, \texttt{-am} or \texttt{-im} are assigned the class \texttt{UNKNOWN\_NOUN\_ADJ}; all other words are assigned the class \texttt{UNKNOWN}.  If a word is recognized as an instance of any morphological analysis, the \texttt{UNKNOWN} designation is dropped (i.e., the union betweeen analyses is a priority union on the lower [output] side, with valid morphological analyses ranking higher than unknown defaults). 
+
 \section{System Analysis on Corpus A}
+
+Development corpus 1 contains 5,000 tokens and 2,437 types.  The initial system generates a non-guessed morphological analysis for 3,038 of these tokens and 940 types, resulting in coverage (of at least one form) of 60.8\% and 38.6\%, respectively.
 
 \section{Lessons Learned and Revised Design}
 
+\paragraph{Lessons.}
+One clear limitation of the initial design (beyond coverage for verbs) is the extremely limited lexicon for all parts of speech.  To help mitigate this, I sorted the output of the first development test by the number of occurences of missing forms for each word type and prompted my informant for the lexical lemma from which it was derived; many of the most common missing forms were closed-class prepositions and adverbs.  Given that this problem is likely to persist beyond the end of the project, it also forced me to reconsider the design to make the addition of lemmas by Assyriologists easy. 
+
+\paragraph{Verbs.}
+In the revised design, I tackled the far more complex problem of verbal morphology.
+To model the complex combinations described above while also striving to create as simple an organization as possible (to faciliate lexicon expansion), I designed the bulk of verb operations not in the lexicon but rather in the subsequent transformational rules. Each verb lemma is represented in the lexicon as a base form paired with the sequence of root radicals, interradical positions (into which templatic morphological inflecitons can be inserted) and the thematic vowels used in the durative and preterite tenses (which must be specified for each verb).  This information fully specifies a verb and allows us to generate a complete verb paradigm.
+
+\begin{verbatim}
+šarāqum:	_ š _ r _ q _ i/i
+\end{verbatim}
+
+%For example, the verb \emph{šaraqum} (``to steal'), with root \texttt{šrq} and thematic vowel \texttt{i}, is represented as the following:
+
+%\begin{verbatim}
+%šarāqum:R1^š^R2^r^R3^q^R4_i^PV1i^DV1 
+%\end{verbatim}
+
+By marking the positions of the root consonants and the spaces in between, we have the foundation on which to lay the affix patterns required by each specific verb type. To generate the 3rd person feminine plural perfect form of this verb, for example, requires the following transformations of the (often empty) elements at particular positions:
+
+\begin{itemize}
+\item Slot 1 $\rightarrow$ Prefix \emph{i-}
+\item Slot 2 $\rightarrow$ Infix \emph{-ta-}
+\item Slot 3 $\rightarrow \emptyset$
+\item Slot 4 $\rightarrow$ Suffix \emph{-ā}
+\end{itemize}
+
+Yielding the form \emph{ištarqā}.
+
+
+To fill out the verbal lexicon, I extracted 255 verbs (defined as base forms, root radicals and theme vowels) from the hand-created Old Assyrian  lexicon described above.
+
 \section{System Analysis on Corpus B}
+
+Development corpus 2 contains 5,000 tokens and 2,344 types. The revised system, with an updated lexicon and verbal morphology, generates a non-guess morphological analysis for 3328 tokens and 1042 types, yielding coverage of 66.6\% and 44.5\%, respectively (approximately a 10\% relative improvement at the token level and 15\% relative improvement at the type level from the first system design).
 
 \section{Final Revisions}
 
@@ -135,12 +196,61 @@ Strong vs. weak verb forms.
 Example Old Assyrian text transcription (for text CCT 1, 11b). Brackets (e.g., ``[a-ší]'' in line 8) denote text that is missing or illegible in the original cuneiform tablet but has been reconstructed by scholars in the process of transcription.  Notes are scattered throughout (e.g., \emph{obv.} denotes the text of the front side [obverse] of a tablet, \emph{rev.} the text on the back [reverse]).
 
 \begin{verbatim}
-CCT 1, 11b#3 BM 113574a#6 EL 24;        15-16: Larsen, OACP 31#10 - OIP XXVII 59, 22-30 ##obv.!        (Siegelabrollung B)1        KIŠIB DINGIR-ma-lá-ak DUMU Sú-en6-SIPA        KIŠIB Bé-lá-nim DUMU Šu-Ku-bi-im        KIŠIB E-ni-ba-áš DUMU A-šùr-DU10         (Siegelabrollung C)        [KIŠIB] Wa!-wa!-lálo.e.         (Siegelabrollung C)rev.!        (2 Stempel C)5        [1/3 ma]-na KÙ.BABBAR ṣa-ru-pá-am        [i-ṣé-e]r DINGIR-ma-lá-ak        [DUMU Sú-en6]-SIPA ù Wa-wa-lá        [a-ší]-tí-šu d.En-líl-ba-ni i-šu        [i]š-tù ha-muš-tim ša kà-ší-im         (Siegelabrollung A)10        ša qá-tí E-na-nim <ITU>.KAM        a-lá-na-tim li-mu-umu.e.         (Siegelabrollung B)        A-gu5-tum 1/2 GÍN.TA i-ITU.KAM        ṣí-ib-tám ú-ṣú-bu KÙ.BABBAR        i-qá-qá-ad šal-mì-šu-nu ra-ki-isle.e.15        qá-té d.En-líl-ba-[ni]         (Siegelabrollung B)        Wa-wa-lá [ú-kà-al]r.e.         (Siegelabrollung A)@END_FILE\end{verbatim}
+CCT 1, 11b
+#3 BM 113574a
+#6 EL 24;
+        15-16: Larsen, OACP 31
+#10 - OIP XXVII 59, 22-30 ##
+
+
+obv.!        (Siegelabrollung B)
+1        KIŠIB DINGIR-ma-lá-ak DUMU Sú-en6-SIPA
+        KIŠIB Bé-lá-nim DUMU Šu-Ku-bi-im
+        KIŠIB E-ni-ba-áš DUMU A-šùr-DU10
+         (Siegelabrollung C)
+        [KIŠIB] Wa!-wa!-lá
+lo.e.         (Siegelabrollung C)
+rev.!        (2 Stempel C)
+5        [1/3 ma]-na KÙ.BABBAR ṣa-ru-pá-am
+        [i-ṣé-e]r DINGIR-ma-lá-ak
+        [DUMU Sú-en6]-SIPA ù Wa-wa-lá
+        [a-ší]-tí-šu d.En-líl-ba-ni i-šu
+        [i]š-tù ha-muš-tim ša kà-ší-im
+         (Siegelabrollung A)
+10        ša qá-tí E-na-nim <ITU>.KAM
+        a-lá-na-tim li-mu-um
+u.e.         (Siegelabrollung B)
+        A-gu5-tum 1/2 GÍN.TA i-ITU.KAM
+        ṣí-ib-tám ú-ṣú-bu KÙ.BABBAR
+        i-qá-qá-ad šal-mì-šu-nu ra-ki-is
+le.e.
+15        qá-té d.En-líl-ba-[ni]
+         (Siegelabrollung B)
+        Wa-wa-lá [ú-kà-al]
+r.e.         (Siegelabrollung A)
+@END_FILE
+
+\end{verbatim}
 
 Tokens extracted from this text by the method described in section \ref{resources} are:
 
 \begin{verbatim}
-DINGIR-ma-lá-ak Sú-en6-SIPABé-lá-nim Šu-Ku-bi-imE-ni-ba-áš A-šùr-DU10Wa!-wa!-láṣa-ru-pá-amDINGIR-ma-lá-akWa-wa-lád.En-líl-ba-ni i-šuha-muš-tim kà-ší-imqá-tí E-na-nima-lá-na-tim li-mu-umA-gu5-tum i-ITU.KAMṣí-ib-tám ú-ṣú-bui-qá-qá-ad šal-mì-šu-nu ra-ki-isqá-téWa-wa-lá
+DINGIR-ma-lá-ak Sú-en6-SIPA
+Bé-lá-nim Šu-Ku-bi-im
+E-ni-ba-áš A-šùr-DU10
+Wa!-wa!-lá
+ṣa-ru-pá-am
+DINGIR-ma-lá-ak
+Wa-wa-lá
+d.En-líl-ba-ni i-šu
+ha-muš-tim kà-ší-im
+qá-tí E-na-nim
+a-lá-na-tim li-mu-um
+A-gu5-tum i-ITU.KAM
+ṣí-ib-tám ú-ṣú-bu
+i-qá-qá-ad šal-mì-šu-nu ra-ki-is
+qá-té
+Wa-wa-lá
 \end{verbatim}
 
 \nocite{*}
