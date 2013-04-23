@@ -27,25 +27,28 @@ def main(parseFile, filename):
             word=cols[0]
             parse=cols[1]
 
-            if word not in parses:
-                parses[word]=[]
+            if re.match("UNKNOWN", parse) == None:
+                if word not in parses:
+                    parses[word]=[]
 
-            parses[word].append(parse)
+                parses[word].append(parse)
 
     file.close()
 
+    p=re.compile("[\t ]")
 
     file=open(filename)
     for line in file:        
         line=re.sub("[\*\[\]/]", "", line)
-        text=line.rstrip().split(" ")
-
+        text=p.split(line.rstrip())
+        #print text
       #  print ' '.join(text)
         for word in text:
+            lookup=re.sub("[<>]", "", word)
             #print word
             parse=""
-            if word in parses:
-                parse=' '.join(parses[word])
+            if lookup in parses:
+                parse=' '.join(parses[lookup])
                 print "%s%s%s (%s) %s" % (bcolors.REG, word, bcolors.PARSE, parse, bcolors.ENDC),
             else:
                 print "%s " % (word),
