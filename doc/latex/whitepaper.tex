@@ -53,13 +53,10 @@
 
 \begin{document}
 \maketitle
-\begin{abstract}
-\end{abstract}
-
 
 \section{Basic Information about Akkadian}
 
-Akkadian is the oldest attested member of the Semitic language family used primarily between the 3rd and 1st millennia BCE.  It encompasses two central dialects: Assyrian, spoken largely in the Assyrian empire centered in northern Mesopotamia; and Babylonian, centered in the south.
+Akkadian is the oldest attested member of the Semitic language family used primarily between the 3rd and 1st millennia BCE\ \cite[xxi]{huehnergard}.  It encompasses two central dialects: Assyrian, spoken largely in the Assyrian empire centered in northern Mesopotamia; and Babylonian, centered in the south.
 
 Akkadian texts were written using a cuneiform script adopted from Sumerian.  The cuneiform symbols largely represent syllables, though some denote logographic values (e.g., one symbol for the word ``man''). 
 The process by which a text is transcribed from a clay tablet includes the following:
@@ -103,9 +100,13 @@ Two commonalities among all prior work is that 1.) all require normalized forms 
 \section{Available Resources}
 \label{resources}
 
-Akkadian lexicon with 3704 words (with somewhat regular categorization for part of speech, from which can extract 741 nouns, 305 verbs, 141 adjectives and 55 adverbs).  More work may be necessary to convert these forms to their stems. (Note for future work: these entries also have English/Danish translations.)
+\begin{enumerate}
+\item Adam Anderson (Department of Near Eastern Languages and Civilizations, Harvard), informant.
 
-A corpus of Old Assyrian texts is available in the form of 2,094 letters between merchants unearthed at the colony of kārum Kaneš near K\"ultepe, Turkey.  Since the original text documents contain annotations and metadata (e.g., line numbers, notes in English and German about the text) and, as transcriptions of cuneiform tablets, also contain word fragments (where the original tablet is missing or illegible), I create development and test corpora by extracting only those tokens with a hyphen (which denotes cuneiform sign boundaries) and exclude all words with missing/reconstructed fragments.  Appendix \ref{appendixData} presents an original source text transcription along with the tokens extracted from it using this method.
+\item Akkadian lexicon divided into verbs, nouns and adjectives.  The original format of these lexica are Microsoft Word documents, but can be mined for word stems.
+
+\item A corpus of Old Assyrian texts is available in the form of 2,094 letters between merchants unearthed at the colony of kārum Kaneš near K\"ultepe, Turkey.  Since the original text documents contain annotations and metadata (e.g., line numbers, notes in English and German about the text) and, as transcriptions of cuneiform tablets, also contain word fragments (where the original tablet is missing or illegible), I create development and test corpora by extracting only those tokens with a hyphen (which denotes cuneiform sign boundaries) and exclude all words with missing/reconstructed fragments.  Appendix \ref{appendixData} presents an original source text transcription along with the tokens extracted from it using this method.
+\end{enumerate}
 
 From this set, I randomly created two development corpora of 5,000 tokens each (\texttt{dev1.corpus.txt} and \texttt{dev2.corpus.txt}), and one final test corpus of 10,000 tokens (\texttt{test.corpus.txt}).  59,649 remaining tokens from this corpus are saved as \texttt{unused.corpus.txt} if we need them, and the token counts of all 17,997 distinct types are saved in \texttt{vocab.counts.txt}.  These counts can help prioritize work to maximize impact.
 
@@ -127,9 +128,9 @@ In this case, the prefix \texttt{ta-} and the suffix \texttt{-ī} together form 
 \section{Initial Design}
 
 
-The initial system design focused on 1.) the morphologically easier problem of modeling noun, adjectives, names, pronouns, prepositions and adverbs and 2.) the problem of transforming a ``normal'' form (as would be seen in a textbook) to a transliterated one (as would be seen in an inscription).
+The initial system design focused on 1.) the morphologically easier problem of modeling nouns, adjectives, names, pronouns, prepositions and adverbs and 2.) the problem of transforming a ``normal'' form (as would be seen in a textbook) to a transliterated one (as would be seen in an inscription).
 
-\paragraph{Morphology.}All morphological information on nouns, adjectives and names comes in the form of inflected suffixes for gender, number, case, posession and several enclitics.  I modeled these by generating them all in the lexicon, running each noun type through several chains, each of which stacked different information onto both the upper and lower side of the transducer (e.g., base form $\rightarrow$ person/number/case $\rightarrow$ optional possessive marker $\rightarrow$ optional enclitic \texttt{-ma} $\rightarrow$ optional enclitic \texttt{-ta}.  Rewrite rules that apply to all phonological sequences (e.g., a sequence of \texttt{a} and \texttt{u} contracting to \texttt{a}) were then performed in a subsequent stage.
+\paragraph{Morphology.}All morphological information on nouns, adjectives and names comes in the form of inflected suffixes for gender, number, case, posession and several enclitics.  I modeled these by generating them all in the lexicon and running each noun type through several chains, each of which stack different information onto both the upper and lower side of the transducer (e.g., base form $\rightarrow$ person/number/case $\rightarrow$ optional possessive marker $\rightarrow$ optional enclitic \texttt{-ma} $\rightarrow$ optional enclitic \texttt{-ta}.  Rewrite rules that apply to all phonological sequences (e.g., a sequence of \texttt{a} and \texttt{u} contracting to \texttt{a}) are then performed in a subsequent stage.
 
 To fill out the base forms, I extracted 1918 nouns and 235 adjectives from a custom Old Assyrian lexicon created by an Assyriologist; I extracted 625 names from a structured database of Old Assyrian letters (where the transliterated forms of the named entities are known); and I manually input 40 indeclinable prepositions and adverbs in consultation with my informant.
 
@@ -156,7 +157,7 @@ One clear limitation of the initial design (beyond coverage for verbs) is the ex
 
 \paragraph{Verbs.}
 In the revised design, I tackled the far more complex problem of verbal morphology.
-To model the complex combinations described above while also striving to create as simple an organization as possible (to faciliate lexicon expansion), I designed the bulk of verb operations not in the lexicon but rather in the subsequent transformational rules. Each verb lemma is represented in the lexicon as a base form paired with the sequence of root radicals, interradical positions (into which templatic morphological inflecitons can be inserted) and the thematic vowels used in the durative and preterite tenses (which must be specified for each verb).  This information fully specifies a verb and allows us to generate a complete verb paradigm.
+To model the complex combinations described above while also striving to create as simple an organization as possible (to faciliate lexicon expansion), I designed the bulk of verb operations not in the lexicon but rather in the subsequent transformational rules. Each verb lemma is represented in the lexicon as a base form paired with the sequence of root radicals, interradical positions (into which templatic morphological inflecitons can be inserted) and the thematic vowels used in the durative and preterite tenses (which must be specified for each verb).  This information fully specifies a verb and allows us to generate a complete verb paradigm.  For example, the verb šarāqum (``to steal'') is represented as the following:
 
 \begin{verbatim}
 šarāqum:	_ š _ r _ q _ i/i
@@ -188,7 +189,14 @@ Development corpus 2 contains 5,000 tokens and 2,344 types. The revised system, 
 
 \section{Final Revisions}
 
+Lexical coverage is still clearly a problem for the revised system.  To deal with this, I implemented a revised default guesser for verbal forms: since most verbs are comprised of a root with 3 radicals, it is straightforward to generate all possible combinations of three consonants, define a \texttt{GUESSED\_VERB} as this random combination, and then subject it to the standard transformations that apply to known verbs.  While this approach greatly improves coverage, it overgenerates to such a degree as to be impractical (nearly all lexical forms observed in the data can be seen as originating in one of these combinations.
+
+Final revisions included manually analzing the errors made during the system analysis on corpus B and adding both new transformational rules and new lexical entries not in the earlier system.  In a final evaluation on the test corpus of 10,000 tokens (corresponding to 4,101 types), the revised system generates a non-guessed analysis for 6,757 tokens (yielding a coverage of 67.6\%) and 1,712 types (for a coverage of 41.7\%).  To estimate the practical impact of coverage, my informant manually analyzed the 50 most frequent tokens in the test data, which together comprise 34.2\% (3419 tokens) of the overall dataset; of this subset, a correct morphological analysis was among those generated 93.6\% of the time, which suggests when a morphological analysis is generated, it is likely to be correct; the long tail of work to come is in expanding the lexical coverage.
+
+
 \section{Future Work}
+
+As noted throughout, the most important element of future work is expanding the lexicon of root forms from which morphological analyzes can be derived.  While the existing manually created lexical resources still offer some room for more elaborate mining, another important resource will be the Assyriologists who will be the end-users of this analyzer.     Beyond this lexical work, we can add coverage for the remaining (less frequently encountered) verb stem types (Gt, Dt, etc.) and revise existing rules to ensure adequate treatment important exception classes, such as weak roots.
 
 \appendix
 \section{Data}
